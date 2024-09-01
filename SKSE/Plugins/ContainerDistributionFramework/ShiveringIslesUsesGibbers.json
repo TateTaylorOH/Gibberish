@@ -3,8 +3,8 @@
     {
       "friendlyName" : "Shivering Isles Vendors Septims to Gibbers",
       "conditions" : {
-        "worldspaces" : [
-          "0xC2BFF8|Skyrim Extended Cut - Saints and Seducers.esp"
+        "locations" : [
+          "0xA5165|Skyrim Extended Cut - Saints and Seducers.esp"
         ],
         "bypassUnsafeContainers": true,
         "allowVendors" : true,
