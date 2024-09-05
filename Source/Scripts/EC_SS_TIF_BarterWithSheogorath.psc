@@ -14,8 +14,7 @@ EndFunction
 ;END FRAGMENT CODE - Do not edit anything between this and the begin comment
 
 Actor Property PlayerREF Auto
-Form Property DES_GibberFront Auto 
-Form  Property DES_GibberBack Auto
+Form Property DES_Gibber Auto 
 Perk Property EC_SS_SIPriceAdjustmentPerk auto
 
 Bool ShouldRevertCurrency
@@ -42,7 +41,7 @@ Function BarterWithSheo(Actor a_kSheo)
 
         ShouldRevertCurrency = True
     EndIf
-    SetCurrency(DES_GibberFront)
+    SetCurrency(DES_Gibber)
 
     a_kSheo.ShowBarterMenu()
 
