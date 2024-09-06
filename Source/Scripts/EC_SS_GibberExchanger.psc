@@ -47,9 +47,9 @@ EndEvent
 
 Event OnItemAdded(Form akBaseItem, int aiItemCount, ObjectReference akItemReference, ObjectReference akSourceContainer)
 	if akBaseItem == DES_GibberBack
-		ConvertManiaGibber(akBaseItem)
-	elseif akBaseItem == DES_GibberFront
 		ConvertDementiaGibber(akBaseItem)
+	elseif akBaseItem == DES_GibberFront
+		ConvertManiaGibber(akBaseItem)
 	endIf
 EndEvent
 
