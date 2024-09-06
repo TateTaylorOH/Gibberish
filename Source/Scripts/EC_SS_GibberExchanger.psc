@@ -26,7 +26,7 @@ Event OnPlayerLoadGame()
 	AddInventoryEventFilter(DES_GibberFront)
 	RegisterForMenu("InventoryMenu")
 	IF ref.GetItemCount(DES_GibberBack) > 0
-		ConvertManiaGibber(DES_GibberBack)
+		ConvertDementiaGibber(DES_GibberBack)
 	ENDIF
 	IF ref.GetItemCount(DES_GibberFront) > 0
 		ConvertManiaGibber(DES_GibberFront)
