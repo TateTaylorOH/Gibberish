@@ -53,7 +53,7 @@ Event OnItemAdded(Form akBaseItem, int aiItemCount, ObjectReference akItemRefere
 	endIf
 EndEvent
 
-function ConvertManiaGibber(Form akBaseItem)
+function ConvertDementiaGibber(Form akBaseItem)
 	MiscObject coin = akBaseItem as MiscObject
 	float valueMult = 1.0
 	if(Quest.getQuest("DES_CoinHandler"))
@@ -69,7 +69,7 @@ function ConvertManiaGibber(Form akBaseItem)
 	endif
 endfunction
 
-function ConvertDementiaGibber(Form akBaseItem)
+function ConvertManiaGibber(Form akBaseItem)
 	MiscObject coin = akBaseItem as MiscObject
 	float valueMult = 1.6
 	if(Quest.getQuest("DES_CoinHandler"))
