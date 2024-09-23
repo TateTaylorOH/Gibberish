@@ -1,4 +1,4 @@
-Scriptname DES_GibberQuestScript extends Quest  
+Scriptname DES_GibberQuestScript extends Quest  conditional
 
 import SEA_BarterFunctions
 
@@ -14,3 +14,6 @@ Event OnCustomBarterMenu(Actor a_kSeller)
 		ENDIF
 	Endif
 endEvent
+
+Int Property InMania Auto Conditional
+Int Property InDementia Auto Conditional
