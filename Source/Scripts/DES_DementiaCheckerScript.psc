@@ -9,4 +9,5 @@ EVENT OnEffectStart(Actor akTarget, Actor akCaster)
 	(EC_SS_GibberExchangerQuest as DES_GibberQuestScript).InDementia = 1
 	DES_Gibber.SetWorldModelPath("COIN/GibberBack.nif")
 	DES_Gibber.SetGoldValue(DES_GibberBack.GetGoldValue())
+	;debug.Messagebox("You are in Dementia.")
 ENDEVENT

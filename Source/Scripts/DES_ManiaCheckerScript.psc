@@ -9,4 +9,5 @@ EVENT OnEffectStart(Actor akTarget, Actor akCaster)
 	(EC_SS_GibberExchangerQuest as DES_GibberQuestScript).InDementia = 0
 	DES_Gibber.SetWorldModelPath("COIN/GibberFront.nif")
 	DES_Gibber.SetGoldValue(DES_GibberFront.GetGoldValue())
+	;debug.Messagebox("You are in Mania.")
 ENDEVENT
