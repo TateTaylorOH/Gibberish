@@ -13,15 +13,8 @@
         }
       },
       "assign": {
-        "subType": "Gold"
-      }
-    },
-    {
-      "match": {
-        "formType": "MiscItem",
-        "subType": "Gold"
-      },
-      "assign": {
+        "subType": "Gold",
+        "iconColor": "#CCCC33",
         "subTypeDisplay": "$Currency"
       }
     }
