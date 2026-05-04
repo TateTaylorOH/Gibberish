@@ -4,7 +4,7 @@
       "friendlyName" : "Shivering Isles Vendors Septims to Gibbers",
       "conditions" : {
         "locations" : [
-          "0xA5165|Skyrim Extended Cut - Saints and Seducers.esp"
+          "A5165|Skyrim Extended Cut - Saints and Seducers.esp"
         ],
         "bypassUnsafeContainers": true,
         "allowVendors" : true,
@@ -12,21 +12,21 @@
       },
       "changes":[
         {
-          "remove" : "0xF|Skyrim.esm",
+          "remove" : "F|Skyrim.esm",
           "add" : [
-            "0xDE5027|Update.esm"
+            "DE5027|Update.esm"
          ]
        },   
         {
-           "remove" : "0xDE5017|Update.esm",
+           "remove" : "DE5017|Update.esm",
            "add" : [
-             "0xDE5027|Update.esm"
+             "DE5027|Update.esm"
           ]
         },   
         {
-          "remove" : "0xDE5018|Update.esm",
+          "remove" : "DE5018|Update.esm",
           "add" : [
-            "0xDE5027|Update.esm"
+            "DE5027|Update.esm"
           ]
         }
       ]
