@@ -12,7 +12,7 @@
       },
       "changes":[
         {
-          "remove" : "F|Skyrim.esm",
+          "remove" : "0xF|Skyrim.esm",
           "add" : [
             "0xDE5027|Update.esm"
          ]
