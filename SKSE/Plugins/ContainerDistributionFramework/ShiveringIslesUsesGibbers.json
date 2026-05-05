@@ -18,13 +18,13 @@
          ]
        },   
         {
-           "remove" : "DE5017|Update.esm",
+           "remove" : "0xDE5017|Update.esm",
            "add" : [
              "0xDE5027|Update.esm"
           ]
         },   
         {
-          "remove" : "DE5018|Update.esm",
+          "remove" : "0xDE5018|Update.esm",
           "add" : [
             "0xDE5027|Update.esm"
           ]
