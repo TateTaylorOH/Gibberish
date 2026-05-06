@@ -1,5 +1,7 @@
 Scriptname DES_GibberFlipper extends ReferenceAlias  
 
+Import SEA_BarterFunctions 
+
 Actor Property PlayerRef auto
 MiscObject Property DES_Gibber auto
 MiscObject Property DES_GibberBack auto
@@ -108,4 +110,16 @@ Event OnMenuOpen(String MenuName)
 	ENDIF
 EndEvent
 
+;--------------------------------------------------
+;TUTORIAL
+;--------------------------------------------------
+
+Message Property DES_GibberTutorialMessage auto
+
+Event OnCustomBarterMenu(Actor a_kSeller)
+;Triggers a one-time tutorial pop-up explaining how alternative currencies work.
+	IF GetCurrency() == DES_Gibber
+		ShowTutorialMessage(DES_GibberTutorialMessage)
+	ENDIF
+endEvent
 
