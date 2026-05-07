@@ -1,10 +1,16 @@
-Scriptname DES_GibberFlipper extends ReferenceAlias  
+Scriptname DES_GibberCurrencySwapper extends Quest conditional
+
+;--------------------------------------------------
+;SHARED PROPERTIES
+;--------------------------------------------------
 
 Actor Property PlayerRef auto
 MiscObject Property DES_Gibber auto
 MiscObject Property DES_GibberBack auto
 MiscObject Property DES_GibberFront auto
 
+;--------------------------------------------------
+;FUNCTIONS
 ;--------------------------------------------------
 
 GlobalVariable Property EC_SS_GoldChanceNone auto
@@ -19,9 +25,9 @@ function Initialize()
 	IF EC_SS_GibberChanceNone.getValue() != 0
 		EC_SS_GibberChanceNone.setValue(0.0)
 	ENDIF
-	RemoveAllInventoryEventFilters()
-	AddInventoryEventFilter(DES_GibberBack)
-	AddInventoryEventFilter(DES_GibberFront)
+	PlayerRef.RemoveAllInventoryEventFilters()
+	PlayerRef.AddInventoryEventFilter(DES_GibberBack)
+	PlayerRef.AddInventoryEventFilter(DES_GibberFront)
 	RegisterForMenu("TweenMenu")
 	IF PlayerRef.GetItemCount(DES_GibberBack) > 0
 		ConvertDementiaGibber(DES_GibberBack)
@@ -29,10 +35,10 @@ function Initialize()
 	IF PlayerRef.GetItemCount(DES_GibberFront) > 0
 		ConvertManiaGibber(DES_GibberFront)
 	ENDIF
-	IF (getOwningQuest() as DES_GibberQuestScript).InDementia == 1
+	IF InDementia == 1
 		DES_Gibber.SetWorldModelPath("COIN/GibberBack.nif")
 		DES_Gibber.SetGoldValue(DES_GibberBack.GetGoldValue())
-	ELSEIF (getOwningQuest() as DES_GibberQuestScript).InMania == 1
+	ELSEIF InMania == 1
 		DES_Gibber.SetWorldModelPath("COIN/GibberFront.nif")
 		DES_Gibber.SetGoldValue(DES_GibberFront.GetGoldValue())
 	ENDIF
@@ -44,6 +50,22 @@ function Initialize()
 		Utility.Wait(5)
 		(Quest.GetQuest("DES_CoinHandler") as DES_DefaultCoins).GibberBackValue = 0.99965
 	ENDIF
+endFunction
+
+;--------------------------------------------------
+
+Function OnPlayerLoadGame_Alias()
+	Initialize()
+endFunction
+
+;--------------------------------------------------
+
+Function OnItemAdded_Alias(form akBaseItem)
+	if akBaseItem == DES_GibberBack
+		ConvertDementiaGibber(akBaseItem)
+	elseif akBaseItem == DES_GibberFront
+		ConvertManiaGibber(akBaseItem)
+	endIf
 endFunction
 
 ;--------------------------------------------------
@@ -67,6 +89,8 @@ function ConvertManiaGibber(Form akBaseItem)
 endFunction
 
 ;--------------------------------------------------
+;EVENTS
+;--------------------------------------------------
 
 Event OnInit()
 	Initialize()
@@ -74,26 +98,10 @@ endEvent
 
 ;--------------------------------------------------
 
-Event OnPlayerLoadGame()
-	Initialize()
-endEvent
-
-;--------------------------------------------------
-
-Event OnItemAdded(Form akBaseItem, int aiItemCount, ObjectReference akItemReference, ObjectReference akSourceContainer)
-	if akBaseItem == DES_GibberBack
-		ConvertDementiaGibber(akBaseItem)
-	elseif akBaseItem == DES_GibberFront
-		ConvertManiaGibber(akBaseItem)
-	endIf
-EndEvent
-
-;--------------------------------------------------
-
 bool defaultPath = true
 
 Event OnMenuOpen(String MenuName)
-	IF (getOwningQuest() as DES_GibberQuestScript).InMania == 0 && (getOwningQuest() as DES_GibberQuestScript).InDementia == 0
+	IF InMania == 0 && InDementia == 0
 		IF MenuName == "TweenMenu"
 			IF defaultPath == true
 				DES_Gibber.SetWorldModelPath("COIN/GibberBack.nif")
@@ -108,3 +116,9 @@ Event OnMenuOpen(String MenuName)
 	ENDIF
 EndEvent
 
+;--------------------------------------------------
+;QUEST VARIABLES
+;--------------------------------------------------
+
+Int Property InMania Auto Conditional
+Int Property InDementia Auto Conditional
