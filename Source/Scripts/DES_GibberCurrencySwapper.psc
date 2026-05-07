@@ -54,22 +54,6 @@ endFunction
 
 ;--------------------------------------------------
 
-Function OnPlayerLoadGame_Alias()
-	Initialize()
-endFunction
-
-;--------------------------------------------------
-
-Function OnItemAdded_Alias(form akBaseItem)
-	if akBaseItem == DES_GibberBack
-		ConvertDementiaGibber(akBaseItem)
-	elseif akBaseItem == DES_GibberFront
-		ConvertManiaGibber(akBaseItem)
-	endIf
-endFunction
-
-;--------------------------------------------------
-
 function ConvertDementiaGibber(Form akBaseItem)
 	MiscObject coin = akBaseItem as MiscObject
 	int count = PlayerRef.getItemCount(akBaseItem)
@@ -115,6 +99,22 @@ Event OnMenuOpen(String MenuName)
 		ENDIF
 	ENDIF
 EndEvent
+
+;--------------------------------------------------
+
+Function OnPlayerLoadGame_Alias()
+	Initialize()
+endFunction
+
+;--------------------------------------------------
+
+Function OnItemAdded_Alias(form akBaseItem)
+	if akBaseItem == DES_GibberBack
+		ConvertDementiaGibber(akBaseItem)
+	elseif akBaseItem == DES_GibberFront
+		ConvertManiaGibber(akBaseItem)
+	endIf
+endFunction
 
 ;--------------------------------------------------
 ;QUEST VARIABLES
